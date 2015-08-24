@@ -1,5 +1,18 @@
 <div class="jumbotron">
-  <h1>Hello, visitor!</h1>
-  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-  <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+  <h1>Never miss another article!</h1>
+  <p>Subscribe to receive email notifications as soon as a new article is posted.</p>
+  <p></p>
+  <%= form_for Subscriber.new do |f| %>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group form-lg">
+          
+          <%= f.email_field :email, class: "form-control", placeholder: "Your email address", required: true %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <%= f.button "Sign up!", type: :submit, class: "btn btn-large btn-primary" %>
+      </div>
+    </div>
+  <%- end %>
 </div>
