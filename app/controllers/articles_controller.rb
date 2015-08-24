@@ -17,9 +17,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to :root
+      redirect_to article_url(@article), success: "Article successfully created!"
     else
-      render action: :edit
+      render action: :edit, danger: "Unable to create article"
     end
   end
 
@@ -31,9 +31,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     
     if @article.update_attributes(article_params)
-      redirect_to article_url(@article)
+      redirect_to article_url(@article), success: "Article sucessfully edited!"
     else
-      render action: :edit
+      render action: :edit, danger: "Unable to create article!"
     end
   end
 
