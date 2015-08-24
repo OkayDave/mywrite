@@ -72,4 +72,6 @@ RSpec.describe Subscriber, type: :model do
 
   end
 
+
+
 end

@@ -13,7 +13,7 @@ class Subscriber < ActiveRecord::Base
   end
 
   def generate_unsubscribe_token
-    self.token = Digest::SHA256.base64digest("#{@email}#{rand(0..100000)}")
+    self.token = Digest::MD5.base64digest("#{@email}#{rand(0..100000)}")
   end
 
   def generate_unsubscribe_token!

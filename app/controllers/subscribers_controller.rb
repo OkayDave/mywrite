@@ -10,6 +10,19 @@ class SubscribersController < ApplicationController
     end
   end
 
+  def destroy
+    token = params[:token]
+
+    @subscriber = Subscriber.find_by_token(token)
+    @subscriber.destroy!
+
+    if @subscriber.destroyed?
+      redirect_to :root, success: "You're no longer subscribed :(!"
+    else
+      redirect_to :root, danger: "Unable to unsubscribe!"
+    end
+  end
+
 
   private
 
