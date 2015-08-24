@@ -5,9 +5,6 @@ Article.delete_all
 Comment.delete_all
 Subscriber.delete_all
 
-articles = []
-comments = []
-subscribers = []
 
 5.times do 
   article = Article.new
@@ -24,6 +21,17 @@ subscribers = []
   end.join(" ")
 
   article.save
-  articles << article
+
+  5.times do
+    comment = Comment.new
+    comment.author = Faker::Name.name
+    comment.body = Faker::Lorem.paragraphs(2).join(" ")
+    comment.article = article
+    comment.save
+  end
 end
 
+5.times do
+  Subscriber.subscribe(Faker::Internet.email)
+
+end
