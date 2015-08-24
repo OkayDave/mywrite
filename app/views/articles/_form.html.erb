@@ -1,0 +1,26 @@
+<%= form_for @article do |f| %>
+  <div class="form-group">
+    <%= f.label :author %>
+    <%= f.text_field :author, class: "form-control", required: true %>
+  </div>
+                                                                                
+  <div class="form-group">
+    <%= f.label :subject, "Title" %>
+    <%= f.text_field :subject, class: "form-control", required: true %>
+  </div>
+                                                                                
+  <div class="form-group">
+    <%= f.label :body, "Content" %>
+    <%= f.text_area :body, class: "form-control", rows: "50", required: true %>
+  </div>
+                                                                                
+  <%= f.submit (@article.new_record? ? "Post Article" : "Edit Record"), class: "btn btn-primary btn-lg" %>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<% end %>
