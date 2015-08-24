@@ -1,0 +1,11 @@
+<div class="row">
+  
+  <article class="col-md-12" data-id="#{article.id}">
+    <h2><%= article.subject %></h2>
+                                                      
+    <p><%= article.body %></p>
+
+    <%= link_to "Read full article", article_path(article) %>
+  </article>
+                                                      
+</div>
