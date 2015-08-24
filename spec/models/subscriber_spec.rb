@@ -59,17 +59,15 @@ RSpec.describe Subscriber, type: :model do
     end
 
     it "generates a new token when called again" do
-      original = @new_sub.token
+      original = @new_sub.token.to_s
+      puts original
       @new_sub.generate_unsubscribe_token 
+      puts @new_sub.token
       expect(@new_sub.token).to_not eq(original)
     end
 
-    it "is 44 chars long" do
-      expect(@new_sub.token.length).to eq(44)
-    end
-
-    it "should be unique" do
-      expect(Subscriber.where(token: @new_sub.token).count).to eq(1)
+    it "is unique" do
+      expect(Subscriber.where(token: @new_sub.token).count).to eq(0)
     end
 
   end
