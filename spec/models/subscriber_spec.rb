@@ -20,6 +20,10 @@ RSpec.describe Subscriber, type: :model do
         expect(Subscriber.where(email: @email).count).to eq(1)
       end
 
+      it "creates an unsubscribe token" do
+        expect(@subscriber.token).to_not be_nil
+      end
+
     end
 
     context 'existing email address' do
@@ -42,6 +46,32 @@ RSpec.describe Subscriber, type: :model do
       end
     end
 
+  end
+
+  describe '#generate_unsubscribe_token' do
+    before do
+      @new_sub = Subscriber.new(email: Faker::Internet.email)
+      @new_sub.generate_unsubscribe_token
+    end
+
+    it "generates a token" do
+      expect(@new_sub.token).to_not be_nil
+    end
+
+    it "generates a new token when called again" do
+      original = @new_sub.token
+      @new_sub.generate_unsubscribe_token 
+      expect(@new_sub.token).to_not eq(original)
+    end
+
+    it "is 44 chars long" do
+      expect(@new_sub.token.length).to eq(44)
+    end
+
+    it "should be unique" do
+      expect(Subscriber.where(token: @new_sub.token).count).to eq(1)
+    end
 
   end
+
 end
