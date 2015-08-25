@@ -13,6 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "darkly", :media => "all" %>
+    <%= javascript_include_tag "darkly" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
 
