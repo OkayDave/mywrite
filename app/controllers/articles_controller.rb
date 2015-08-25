@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      @article.delay.notify
       redirect_to article_url(@article), success: "Article successfully created!"
     else
       render action: :edit, danger: "Unable to create article"
