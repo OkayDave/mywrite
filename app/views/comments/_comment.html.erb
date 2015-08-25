@@ -5,7 +5,7 @@
         <h5>written by <strong><%= comment.author %></strong> at <time><%= comment.created_at.to_s(:short) %></time></h5>
       </header>
 
-      <p><%= comment.body %></p>
+      <%= render_markdown comment.body %>
 
       <footer>
         <%= link_to "Delete", article_comment_url(comment.article, comment), method: :delete, class: "btn btn-danger btn-sm" %>

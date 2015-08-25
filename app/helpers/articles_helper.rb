@@ -4,7 +4,8 @@ module ArticlesHelper
       space_after_headers: true,
       link_attributes: { target: "_blank" },
       hard_wrap: true,
-      filter_html: true
+      filter_html: true,
+      fenced_code_blocks: true
     }
 
     renderer = Redcarpet::Render::HTML.new(opts)
