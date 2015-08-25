@@ -1,29 +1,49 @@
 <div class="row">
-  <div class="col-md-12">
-    <article>
-      <h1><%= @article.subject %></h2>
-      <hr />
-      <section class="article-body">
+  <article class="col-md-12 article-show">
+    
+    <h1><%= @article.subject %></h1>
+    <hr />
+
+    <div class="row">
+    
+        
+      <section class="col-md-9 article-body">
         <%= @article.body %>
       </section>
-      <hr />
-      <section class="article-comments">
+      
+      <aside class="col-md-2 col-md-offset-1">
+        <ul class="list-unstyled article-buttons">
+          <li>
+            <%= link_to 'Edit Article', edit_article_url(@article), class: "btn btn-large btn-primary" %>
+          </li>
+
+          <li>
+            <%= link_to 'Delete Article', article_url(@article), method: :delete, class: "btn btn-large btn-danger" %>
+          </li>
+
+        </ul>
+      </aside>
+      
+    </div>
+    <hr />
+    <div class="row"> 
+      <section class="col-md-12 article-comments">
         <h3>Comments</h3>
 
         <div class="row">
-          <div class="col-md-6">
+          <section class="comment-list col-md-6">
             <%= render partial: "comments/comment", collection: @article.comments[0..-2] %>
-          </div>
-          <div class="col-md-5 col-md-offset-1">
+          </section>
+          <section class="comments-post col-md-5 col-md-offset-1">
             <%= render partial: "comments/form" %>
-          </div>
+          </section>
         </div>
       </section>
+    </div>
 
 
+  </article>
+  
 
-    </article>
-
-  </div>
 
 </div>
