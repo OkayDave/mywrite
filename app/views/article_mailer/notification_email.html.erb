@@ -1,0 +1,8 @@
+<h3>Great news! <%= @article.author %> has written a new article</h3>
+<hr />
+<p>It's called <strong><%= link_to @article.subject, @url %></strong>.</p>
+
+<p>If the above link doesn't work, click here: <%= @url %></p>
+<hr />
+
+<p>No longer want to receive notifications? <%= link_to "Unsubscribe here", @unsubscribe_url %> or go to this URL: <%= @unsubscribe_url %> </p>

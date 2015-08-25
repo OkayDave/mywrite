@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources(:subscribers, only: [:create]) do
-    get "/unsubscribe/:token", action: :destroy, on: :collection # typically a DELETE or POST request, but when going from email clients it's best to roll with GET
+    get "/unsubscribe/:token", action: :destroy, on: :collection, as: :unsubscribe # typically a DELETE or POST request, but when going from email clients it's best to roll with GET
     
   end
 
