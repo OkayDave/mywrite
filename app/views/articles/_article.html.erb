@@ -3,7 +3,7 @@
   <article class="col-md-12" data-id="#{article.id}">
     <h2><%= article.subject %></h2>
                                                       
-    <p><%= article.body %></p>
+    <%= render_markdown(article.body.split(" \n\n ")[0]) %>
 
     <%= link_to "Read full article", article_path(article) %>
   </article>

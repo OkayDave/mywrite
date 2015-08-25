@@ -8,7 +8,7 @@
     
         
       <section class="col-md-9 article-body">
-        <%= @article.body %>
+        <%= render_markdown(@article.body) %>
       </section>
       
       <aside class="col-md-2 col-md-offset-1">

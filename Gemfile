@@ -35,6 +35,9 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'daemons'
 gem 'delayed_job_active_record'
 
+# Markdown processor
+gem 'redcarpet', '~> 3.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

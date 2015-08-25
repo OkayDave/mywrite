@@ -11,12 +11,12 @@ Subscriber.delete_all
 
   article.author = Faker::Name.name
   article.subject = Faker::Lorem.sentence
-  article.body = Faker::Lorem.paragraphs(5).map do |paragraph|
+  article.body = Faker::Lorem.paragraphs(5).map do |paragraph| 
     ## Bold the first word of each paragraph
     words = paragraph.split
 
     words[0] = "**#{words[0]}**"
-
+    words << " \n\n "
     words
   end.join(" ")
 
