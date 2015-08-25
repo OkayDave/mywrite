@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   has_many :comments
 
+  default_scope { order(created_at: :desc) }
+
   def to_param
     return "#{self.id}-#{self.subject}".parameterize
   end
