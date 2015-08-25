@@ -1,7 +1,9 @@
 class Article < ActiveRecord::Base
   has_many :comments
 
-  
+  def to_param
+    return "#{self.id}-#{self.subject}".parameterize
+  end
 
 
   def notify
