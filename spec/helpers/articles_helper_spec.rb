@@ -11,5 +11,32 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ArticlesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#render_markdown" do
+    before do
+      @md = %Q{
+title
+=====
+
+paragraph word word word.
+
+**bold text**
+}
+
+      @output = helper.render_markdown(@md)
+
+    end
+
+    it "includes a title" do
+      expect(@output).to match(/<h1>/)
+    end
+
+    it "includes a paragraph" do
+      expect(@output).to match(/<p>/)
+    end
+
+    it "includes a bold" do
+      expect(@output).to match(/<strong>/)
+    end
+
+  end
 end
